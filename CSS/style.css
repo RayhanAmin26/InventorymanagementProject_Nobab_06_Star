@@ -1,0 +1,147 @@
+/* ================================
+   General Body & Fonts
+================================ */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* ================================
+   Navbar
+================================ */
+.navbar {
+  border-bottom: 3px solid #28a745;
+}
+
+.navbar .nav-link {
+  font-weight: 500;
+  margin-right: 15px;
+}
+
+.navbar .nav-link.active {
+  background-color: #218838;
+  border-radius: 5px;
+  color: #fff !important;
+}
+
+/* ================================
+   Section Cards
+================================ */
+.section-card {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #155724;
+}
+
+/* ================================
+   Table Styling
+================================ */
+.table th {
+  background-color: #28a745;
+  color: #fff;
+  text-align: center;
+}
+
+.table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #e9f7ef;
+}
+
+/* ================================
+   Buttons
+================================ */
+.btn-custom {
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+/* ================================
+   Modals
+================================ */
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+/* ================================
+   Footer
+================================ */
+/* Footer */
+/* Footer Box */
+/* Page Container */
+/* Page Container */
+/* Footer Box */
+/* Footer Box */
+.footer-box {
+  display: flex;
+  justify-content: center; /* Center the box */
+  margin: 20px 0;
+}
+
+.footer-content {
+  background-color: #28a745 !important; /* bright green background */
+  color: #ffffff !important;            /* white text */
+  text-align: center;
+  padding: 15px 25px;
+  border-radius: 12px;
+  width: 60%; /* Box width */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-weight: 700 !important; /* Bold text */
+  font-size: 1.1rem;           /* Slightly larger text */
+  letter-spacing: 0.5px;
+  transition: background 0.3s;
+}
+
+.footer-content:hover {
+  background-color: #218838 !important; /* Darker green on hover */
+}
+
+.footer-content p {
+  margin: 0;
+}
