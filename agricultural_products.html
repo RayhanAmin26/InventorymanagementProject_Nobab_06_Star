@@ -2,129 +2,157 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Agricultural Products</title>
+  <title>Agricultural Products - Agri Inventory</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+  <div class="page-container">
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-success shadow">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="index.html">🌾 Agri Inventory</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
-        <li class="nav-item"><a class="nav-link active" href="agricultural_products.html">Agricultural Products</a></li>
-        <li class="nav-item"><a class="nav-link" href="harvested_crops.html">Harvested Crops</a></li>
-        <li class="nav-item"><a class="nav-link" href="perishable_products.html">Perishable Products</a></li>
-        <li class="nav-item"><a class="nav-link" href="inventory.html">Inventory</a></li>
-        <li class="nav-item"><a class="nav-link" href="post_harvest.html">Post-Harvest Monitoring</a></li>
-      </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html">🌾 Agri Inventory</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="agricultural_products.html">Agricultural Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="harvested_crops.html">Harvested Crops</a></li>
+            <li class="nav-item"><a class="nav-link" href="perishable_products.html">Perishable Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="inventory.html">Inventory</a></li>
+            <li class="nav-item"><a class="nav-link" href="post_harvest.html">Post-Harvest Monitoring</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content-wrap container mt-4 section-card">
+      <!-- Page Title -->
+      <h2 class="section-title">Agricultural Products</h2>
+
+      <!-- Search + Add -->
+      <div class="d-flex justify-content-between mb-3">
+        <input type="text" class="form-control w-25" placeholder="Search...">
+        <button class="btn btn-success btn-custom" data-bs-toggle="modal" data-bs-target="#addModal">+ Add New</button>
+      </div>
+
+      <!-- Table -->
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr class="table-success">
+            <th>Seed Type</th>
+            <th>Sowing Date</th>
+            <th>Expected Harvest</th>
+            <th>Storage</th>
+            <th>Shelf Life</th>
+            <th>Packaging</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rice</td>
+            <td>2025-03-01</td>
+            <td>2025-07-01</td>
+            <td>Cool & Dry</td>
+            <td>6 Months</td>
+            <td>Gunny Bags</td>
+            <td>
+              <button class="btn btn-warning btn-sm btn-custom" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+              <button class="btn btn-danger btn-sm btn-custom">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>
-</nav>
 
-<div class="container mt-4 section-card">
-  <h2 class="section-title">🌿 Agricultural Products</h2>
+    <!-- Footer -->
+    <footer class="footer-box bg-dark text-light text-center py-3">
+      <div class="footer-content">
+        <p class="fw-bold" style="color: #ffc107;">© 2025 Agri Inventory Management | Developed By Nobab_Ultron</p>
+      </div>
+    </footer>
 
-  <!-- Search + Add -->
-  <div class="d-flex justify-content-between mb-3">
-    <input type="text" class="form-control w-25" placeholder="Search...">
-    <button class="btn btn-success btn-custom" data-bs-toggle="modal" data-bs-target="#addModal">+ Add New</button>
-  </div>
+  </div> <!-- End Page Container -->
 
-  <!-- Table -->
-  <table class="table table-bordered table-hover">
-    <thead>
-      <tr>
-        <th>Seed Type</th>
-        <th>Sowing Date</th>
-        <th>Expected Harvest</th>
-        <th>Storage</th>
-        <th>Shelf Life</th>
-        <th>Packaging</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Rice</td>
-        <td>2025-02-01</td>
-        <td>2025-05-20</td>
-        <td>Cool & Dry</td>
-        <td>6 Months</td>
-        <td>50kg Sack</td>
-        <td>
-          <button class="btn btn-warning btn-sm btn-custom" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
-          <button class="btn btn-danger btn-sm btn-custom">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<!-- Add Modal -->
-<div class="modal fade" id="addModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header bg-success text-white">
-        <h5 class="modal-title">Add Agricultural Product</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <input class="form-control mb-2" placeholder="Seed Type">
-          <input type="date" class="form-control mb-2" placeholder="Sowing Date">
-          <input type="date" class="form-control mb-2" placeholder="Expected Harvest">
-          <input class="form-control mb-2" placeholder="Storage">
-          <input class="form-control mb-2" placeholder="Shelf Life">
-          <input class="form-control mb-2" placeholder="Packaging">
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-success">Save</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Edit Modal -->
-<div class="modal fade" id="editModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header bg-warning text-dark">
-        <h5 class="modal-title">Edit Agricultural Product</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <input class="form-control mb-2" placeholder="Seed Type">
-          <input type="date" class="form-control mb-2" placeholder="Sowing Date">
-          <input type="date" class="form-control mb-2" placeholder="Expected Harvest">
-          <input class="form-control mb-2" placeholder="Storage">
-          <input class="form-control mb-2" placeholder="Shelf Life">
-          <input class="form-control mb-2" placeholder="Packaging">
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-warning">Update</button>
+  <!-- Add Modal -->
+  <div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">Add New Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <input type="text" class="form-control mb-2" placeholder="Seed Type">
+            <input type="date" class="form-control mb-2" placeholder="Sowing Date">
+            <input type="date" class="form-control mb-2" placeholder="Expected Harvest">
+            <input type="text" class="form-control mb-2" placeholder="Storage">
+            <input type="text" class="form-control mb-2" placeholder="Shelf Life">
+            <input type="text" class="form-control mb-2" placeholder="Packaging">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-success">Save</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<footer class="footer">
-  <p contenteditable="true">© 2025 Agri Inventory Management | Developed By Nobab_Ultron</p>
-</footer>
+  <!-- Edit Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-warning text-dark">
+          <h5 class="modal-title">Edit Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <input type="text" class="form-control mb-2" placeholder="Seed Type">
+            <input type="date" class="form-control mb-2" placeholder="Sowing Date">
+            <input type="date" class="form-control mb-2" placeholder="Expected Harvest">
+            <input type="text" class="form-control mb-2" placeholder="Storage">
+            <input type="text" class="form-control mb-2" placeholder="Shelf Life">
+            <input type="text" class="form-control mb-2" placeholder="Packaging">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-warning">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Edit button click event
+    document.querySelectorAll(".btn-warning").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        let row = this.closest("tr");
+        let seedType = row.cells[0].innerText;
+        let sowingDate = row.cells[1].innerText;
+        let expectedHarvest = row.cells[2].innerText;
+        let storage = row.cells[3].innerText;
+        let shelfLife = row.cells[4].innerText;
+        let packaging = row.cells[5].innerText;
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        let modal = document.getElementById("editModal");
+        modal.querySelector("input[placeholder='Seed Type']").value = seedType;
+        modal.querySelector("input[placeholder='Sowing Date']").value = sowingDate;
+        modal.querySelector("input[placeholder='Expected Harvest']").value = expectedHarvest;
+        modal.querySelector("input[placeholder='Storage']").value = storage;
+        modal.querySelector("input[placeholder='Shelf Life']").value = shelfLife;
+        modal.querySelector("input[placeholder='Packaging']").value = packaging;
+      });
+    });
+  </script>
 </body>
 </html>
-
