@@ -111,37 +111,28 @@ body {
 
 /* ================================
    Footer
-================================ */
-/* Footer */
-/* Footer Box */
-/* Page Container */
-/* Page Container */
-/* Footer Box */
-/* Footer Box */
-.footer-box {
-  display: flex;
-  justify-content: center; /* Center the box */
-  margin: 20px 0;
+/* ===== Footer ===== */
+.site-footer{
+  background:#23272b;          /* ডার্ক ব্যাকগ্রাউন্ড */
+  color:#f3b200;                /* গোল্ড/ইয়েলো টেক্সট */
+  text-align:center;
+  font-weight:700;
+  padding:12px 16px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.site-footer a{
+  color:#f3b200;
+  text-decoration:none;
+}
+.site-footer a:hover{
+  text-decoration:underline;
 }
 
-.footer-content {
-  background-color: #28a745 !important; /* bright green background */
-  color: #ffffff !important;            /* white text */
-  text-align: center;
-  padding: 15px 25px;
-  border-radius: 12px;
-  width: 60%; /* Box width */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  font-weight: 700 !important; /* Bold text */
-  font-size: 1.1rem;           /* Slightly larger text */
-  letter-spacing: 0.5px;
-  transition: background 0.3s;
+/* ফুটারকে নিচে রাখতে মিন-হাইট লেআউট */
+html, body { height:100%; }
+body{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
-
-.footer-content:hover {
-  background-color: #218838 !important; /* Darker green on hover */
-}
-
-.footer-content p {
-  margin: 0;
-}
+main{ flex:1; } /* পেজ কনটেন্ট main-এর ভেতরে থাকবে */

@@ -5,6 +5,33 @@
   <title>Harvested Crops</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Footer Style */
+    .site-footer{
+      background:#23272b;          /* Dark background */
+      color:#f3b200;               /* Yellow text */
+      text-align:center;
+      font-weight:600;
+      padding:12px 16px;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .site-footer a{
+      color:#f3b200;
+      text-decoration:none;
+    }
+    .site-footer a:hover{
+      text-decoration:underline;
+    }
+
+    /* Sticky Footer Layout */
+    html, body { height:100%; margin:0; }
+    body{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+    main{ flex:1; }
+  </style>
 </head>
 <body>
 
@@ -28,7 +55,7 @@
   </div>
 </nav>
 
-<div class="container mt-4 section-card">
+<main class="container mt-4 section-card">
   <h2 class="section-title">🌾 Harvested Crops</h2>
 
   <!-- Search + Add -->
@@ -61,7 +88,7 @@
       </tr>
     </tbody>
   </table>
-</div>
+</main>
 
 <!-- Add Modal -->
 <div class="modal fade" id="addModal" tabindex="-1">
@@ -108,10 +135,18 @@
     </div>
   </div>
 </div>
-<footer class="footer">
-  <p contenteditable="true">© 2025 Agri Inventory Management | Developed By Nobab_Ultron</p>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <p>© <span id="year"></span> Agri Inventory Management | Developed By 
+    <a href="#">Nobab_Ultron</a>
+  </p>
 </footer>
 
+<script>
+  // auto year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
