@@ -13,7 +13,7 @@
       min-height: 100vh;
     }
     .flex-grow-1 {
-      flex: 1; /* Main content fills remaining space */
+      flex: 1;
     }
     .footer-box {
       background: #212529;
@@ -66,17 +66,25 @@
           <table class="table table-bordered table-hover">
             <thead>
               <tr class="table-success">
+                <th>Product ID</th>
                 <th>Product Name</th>
+                <th>Category</th>
                 <th>Stock Level</th>
                 <th>Usage Rate</th>
+                <th>Quantity</th>
+                <th>Procurement Schedule</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr>
+                <td>P001</td>
                 <td>Rice</td>
+                <td>Grain</td>
                 <td>200 kg</td>
                 <td>50 kg/week</td>
+                <td>500</td>
+                <td>2025-09-01</td>
                 <td>
                   <button class="btn btn-warning btn-sm btn-custom" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
                   <button class="btn btn-danger btn-sm btn-custom">Delete</button>
@@ -105,9 +113,13 @@
         </div>
         <div class="modal-body">
           <form>
+            <input class="form-control mb-2" placeholder="Product ID">
             <input class="form-control mb-2" placeholder="Product Name">
+            <input class="form-control mb-2" placeholder="Category">
             <input class="form-control mb-2" placeholder="Stock Level">
             <input class="form-control mb-2" placeholder="Usage Rate">
+            <input class="form-control mb-2" placeholder="Quantity">
+            <input type="date" class="form-control mb-2" placeholder="Procurement Schedule">
           </form>
         </div>
         <div class="modal-footer">
@@ -128,9 +140,13 @@
         </div>
         <div class="modal-body">
           <form>
+            <input class="form-control mb-2" placeholder="Product ID">
             <input class="form-control mb-2" placeholder="Product Name">
+            <input class="form-control mb-2" placeholder="Category">
             <input class="form-control mb-2" placeholder="Stock Level">
             <input class="form-control mb-2" placeholder="Usage Rate">
+            <input class="form-control mb-2" placeholder="Quantity">
+            <input type="date" class="form-control mb-2" placeholder="Procurement Schedule">
           </form>
         </div>
         <div class="modal-footer">
@@ -148,14 +164,22 @@
     document.querySelectorAll(".btn-warning").forEach((btn) => {
       btn.addEventListener("click", function () {
         let row = this.closest("tr");
-        let product = row.cells[0].innerText;
-        let stock = row.cells[1].innerText;
-        let usage = row.cells[2].innerText;
+        let productId = row.cells[0].innerText;
+        let productName = row.cells[1].innerText;
+        let category = row.cells[2].innerText;
+        let stockLevel = row.cells[3].innerText;
+        let usageRate = row.cells[4].innerText;
+        let quantity = row.cells[5].innerText;
+        let procurementSchedule = row.cells[6].innerText;
 
         let modal = document.getElementById("editModal");
-        modal.querySelector("input[placeholder='Product Name']").value = product;
-        modal.querySelector("input[placeholder='Stock Level']").value = stock;
-        modal.querySelector("input[placeholder='Usage Rate']").value = usage;
+        modal.querySelector("input[placeholder='Product ID']").value = productId;
+        modal.querySelector("input[placeholder='Product Name']").value = productName;
+        modal.querySelector("input[placeholder='Category']").value = category;
+        modal.querySelector("input[placeholder='Stock Level']").value = stockLevel;
+        modal.querySelector("input[placeholder='Usage Rate']").value = usageRate;
+        modal.querySelector("input[placeholder='Quantity']").value = quantity;
+        modal.querySelector("input[placeholder='Procurement Schedule']").value = procurementSchedule;
       });
     });
 
@@ -168,7 +192,7 @@
       });
     });
 
-    // Optional: Search Filter
+    // Search Filter
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('keyup', function() {
       const filter = this.value.toLowerCase();

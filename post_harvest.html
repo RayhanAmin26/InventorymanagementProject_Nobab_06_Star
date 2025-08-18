@@ -6,25 +6,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* Flex page layout for sticky footer */
-    .page-container {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    .flex-grow-1 {
-      flex: 1; /* Main content fills remaining space */
-    }
-    .footer-box {
-      background: #212529;
-      color: #ffc107;
-      text-align: center;
-      padding: 10px;
-      font-weight: bold;
-    }
-    .btn-custom {
-      border-radius: 5px;
-    }
+    .page-container { display: flex; flex-direction: column; min-height: 100vh; }
+    .flex-grow-1 { flex: 1; }
+    .footer-box { background: #212529; color: #ffc107; text-align: center; padding: 10px; font-weight: bold; }
+    .btn-custom { border-radius: 5px; }
   </style>
 </head>
 <body>
@@ -66,19 +51,29 @@
           <table class="table table-bordered table-hover">
             <thead>
               <tr class="table-success">
+                <th>Product ID</th>
                 <th>Product Name</th>
+                <th>Category</th>
                 <th>Batch Number</th>
                 <th>Expiry Date</th>
                 <th>Storage Condition</th>
+                <th>Location</th>
+                <th>Quantity</th>
+                <th>Stock Level Status</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr>
+                <td>P100</td>
                 <td>Tomato</td>
+                <td>Vegetable</td>
                 <td>B-001</td>
                 <td>2025-08-25</td>
                 <td>Cold Storage</td>
+                <td>Warehouse A</td>
+                <td>250 kg</td>
+                <td>Medium</td>
                 <td>
                   <button class="btn btn-warning btn-sm btn-custom" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
                   <button class="btn btn-danger btn-sm btn-custom">Delete</button>
@@ -107,10 +102,15 @@
         </div>
         <div class="modal-body">
           <form>
+            <input class="form-control mb-2" placeholder="Product ID">
             <input class="form-control mb-2" placeholder="Product Name">
+            <input class="form-control mb-2" placeholder="Category">
             <input class="form-control mb-2" placeholder="Batch Number">
             <input type="date" class="form-control mb-2">
             <input class="form-control mb-2" placeholder="Storage Condition">
+            <input class="form-control mb-2" placeholder="Location">
+            <input class="form-control mb-2" placeholder="Quantity">
+            <input class="form-control mb-2" placeholder="Stock Level Status">
           </form>
         </div>
         <div class="modal-footer">
@@ -131,10 +131,15 @@
         </div>
         <div class="modal-body">
           <form>
+            <input class="form-control mb-2" placeholder="Product ID">
             <input class="form-control mb-2" placeholder="Product Name">
+            <input class="form-control mb-2" placeholder="Category">
             <input class="form-control mb-2" placeholder="Batch Number">
             <input type="date" class="form-control mb-2">
             <input class="form-control mb-2" placeholder="Storage Condition">
+            <input class="form-control mb-2" placeholder="Location">
+            <input class="form-control mb-2" placeholder="Quantity">
+            <input class="form-control mb-2" placeholder="Stock Level Status">
           </form>
         </div>
         <div class="modal-footer">
@@ -153,14 +158,19 @@
       btn.addEventListener("click", function () {
         let row = this.closest("tr");
         let cells = row.querySelectorAll("td");
-
         let modal = document.getElementById("editModal");
         let inputs = modal.querySelectorAll("input");
 
-        inputs[0].value = cells[0].innerText; // Product Name
-        inputs[1].value = cells[1].innerText; // Batch Number
-        inputs[2].value = cells[2].innerText; // Expiry Date
-        inputs[3].value = cells[3].innerText; // Storage Condition
+        // Mapping table cells → form inputs
+        inputs[0].value = cells[0].innerText; // Product ID
+        inputs[1].value = cells[1].innerText; // Product Name
+        inputs[2].value = cells[2].innerText; // Category
+        inputs[3].value = cells[3].innerText; // Batch Number
+        inputs[4].value = cells[4].innerText; // Expiry Date
+        inputs[5].value = cells[5].innerText; // Storage Condition
+        inputs[6].value = cells[6].innerText; // Location
+        inputs[7].value = cells[7].innerText; // Quantity
+        inputs[8].value = cells[8].innerText; // Stock Level Status
       });
     });
 
@@ -173,7 +183,7 @@
       });
     });
 
-    // Optional: Search Filter
+    // Search Filter
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('keyup', function() {
       const filter = this.value.toLowerCase();
