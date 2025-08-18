@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Perishable Products - Agri Inventory</title>
+  <title>Perishable Products</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Ensure footer stays at bottom */
+    .page-container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .footer-box {
+      margin-top: auto;
+      background: #212529;
+      color: #ffc107;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
   <div class="page-container">
@@ -29,7 +45,6 @@
       </div>
     </nav>
 
-    <!-- Main Content -->
     <div class="container mt-4 section-card">
       <h2 class="section-title">🍎 Perishable Products</h2>
 
@@ -69,14 +84,12 @@
       </table>
     </div>
 
-    <!-- Footer Box -->
-    <footer class="footer-box bg-dark text-light text-center py-3">
-      <div class="footer-content">
-        <p class="fw-bold" style="color: #ffc107;">© 2025 Agri Inventory Management | Developed By Nobab_Ultron</p>
-      </div>
+    <!-- Footer -->
+    <footer class="footer-box">
+      © 2025 Agri Inventory Management | Developed By Nobab_Ultron
     </footer>
 
-  </div> <!-- End Page Container -->
+  </div>
 
   <!-- Add Modal -->
   <div class="modal fade" id="addModal" tabindex="-1">
@@ -130,26 +143,6 @@
     </div>
   </div>
 
-  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Auto-fill Edit Modal with row data
-    document.querySelectorAll(".btn-warning").forEach((btn) => {
-      btn.addEventListener("click", function () {
-        let row = this.closest("tr");
-        let cells = row.querySelectorAll("td");
-
-        let modal = document.getElementById("editModal");
-        let inputs = modal.querySelectorAll("input");
-
-        inputs[0].value = cells[0].innerText;
-        inputs[1].value = cells[1].innerText;
-        inputs[2].value = cells[2].innerText;
-        inputs[3].value = cells[3].innerText;
-        inputs[4].value = cells[4].innerText;
-        inputs[5].value = cells[5].innerText;
-      });
-    });
-  </script>
 </body>
 </html>

@@ -5,6 +5,27 @@
   <title>Post-Harvest Monitoring - Agri Inventory</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Flex page layout for sticky footer */
+    .page-container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .flex-grow-1 {
+      flex: 1; /* Main content fills remaining space */
+    }
+    .footer-box {
+      background: #212529;
+      color: #ffc107;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+    }
+    .btn-custom {
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
   <div class="page-container">
@@ -29,49 +50,52 @@
       </div>
     </nav>
 
-    <!-- Main Section -->
-    <div class="container mt-4 section-card">
-      <h2 class="section-title">📊 Post-Harvest Monitoring</h2>
+    <!-- Main Content -->
+    <div class="flex-grow-1">
+      <div class="container mt-4 section-card">
+        <h2 class="section-title">📊 Post-Harvest Monitoring</h2>
 
-      <!-- Search + Add -->
-      <div class="d-flex justify-content-between mb-3">
-        <input type="text" class="form-control w-25" placeholder="Search...">
-        <button class="btn btn-success btn-custom" data-bs-toggle="modal" data-bs-target="#addModal">+ Add New</button>
+        <!-- Search + Add -->
+        <div class="d-flex justify-content-between mb-3">
+          <input type="text" id="searchInput" class="form-control w-25" placeholder="Search...">
+          <button class="btn btn-success btn-custom" data-bs-toggle="modal" data-bs-target="#addModal">+ Add New</button>
+        </div>
+
+        <!-- Table -->
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr class="table-success">
+                <th>Product Name</th>
+                <th>Batch Number</th>
+                <th>Expiry Date</th>
+                <th>Storage Condition</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tomato</td>
+                <td>B-001</td>
+                <td>2025-08-25</td>
+                <td>Cold Storage</td>
+                <td>
+                  <button class="btn btn-warning btn-sm btn-custom" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                  <button class="btn btn-danger btn-sm btn-custom">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-
-      <!-- Table -->
-      <table class="table table-bordered table-hover">
-        <thead>
-          <tr class="table-success">
-            <th>Product Name</th>
-            <th>Batch Number</th>
-            <th>Expiry Date</th>
-            <th>Storage Condition</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Tomato</td>
-            <td>B-001</td>
-            <td>2025-08-25</td>
-            <td>Cold Storage</td>
-            <td>
-              <button class="btn btn-warning btn-sm btn-custom" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
-              <button class="btn btn-danger btn-sm btn-custom">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
 
     <!-- Footer -->
-    <footer class="footer-box bg-dark text-light text-center py-3">
-      <div class="footer-content">
-        <p class="fw-bold" style="color: #ffc107;">© 2025 Agri Inventory Management | Developed By Nobab_Ultron</p>
-      </div>
+    <footer class="footer-box">
+      © 2025 Agri Inventory Management | Developed By Nobab_Ultron
     </footer>
-  </div>
+
+  </div> <!-- End Page Container -->
 
   <!-- Add Modal -->
   <div class="modal fade" id="addModal" tabindex="-1">
@@ -137,6 +161,27 @@
         inputs[1].value = cells[1].innerText; // Batch Number
         inputs[2].value = cells[2].innerText; // Expiry Date
         inputs[3].value = cells[3].innerText; // Storage Condition
+      });
+    });
+
+    // Delete button
+    document.querySelectorAll('.btn-danger').forEach(btn => {
+      btn.addEventListener('click', function() {
+        if(confirm('Are you sure you want to delete this item?')) {
+          this.closest('tr').remove();
+        }
+      });
+    });
+
+    // Optional: Search Filter
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('keyup', function() {
+      const filter = this.value.toLowerCase();
+      const rows = document.querySelectorAll('tbody tr');
+      rows.forEach(row => {
+        row.style.display = [...row.cells].some(cell =>
+          cell.textContent.toLowerCase().includes(filter)
+        ) ? '' : 'none';
       });
     });
   </script>
