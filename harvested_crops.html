@@ -8,8 +8,8 @@
   <style>
     /* Footer Style */
     .site-footer{
-      background:#23272b;          /* Dark background */
-      color:#f3b200;               /* Yellow text */
+      background:#23272b;
+      color:#f3b200;
       text-align:center;
       font-weight:600;
       padding:12px 16px;
@@ -66,28 +66,54 @@
 
   <!-- Table -->
   <table class="table table-bordered table-hover">
-    <thead>
-      <tr>
-        <th>Crop Name</th>
-        <th>Quantity</th>
-        <th>Storage Condition</th>
-        <th>Processing Unit</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Tomato</td>
-        <td>500 kg</td>
-        <td>Cool & Dry</td>
-        <td>Unit A</td>
-        <td>
-          <button class="btn btn-warning btn-sm btn-custom" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
-          <button class="btn btn-danger btn-sm btn-custom">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr class="table-success">
+      <th>Crop ID</th>
+      <th>Temperature</th>
+      <th>Humidity</th>
+      <th>Category</th>
+      <th>Harvest Date</th>
+      <th>Crop Name</th>
+      <th>Quantity</th>
+      <th>Storage</th>
+      <th>Processing Unit</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>C001</td>
+      <td>25°C</td>
+      <td>60%</td>
+      <td>Grain</td>
+      <td>2025-03-01</td>
+      <td>Rice</td>
+      <td>200 kg</td>
+      <td>Warehouse A</td>
+      <td>Unit A</td>
+      <td>
+        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+        <button class="btn btn-danger btn-sm">Delete</button>
+      </td>
+    </tr>
+    <tr>
+      <td>C002</td>
+      <td>20°C</td>
+      <td>55%</td>
+      <td>Vegetable</td>
+      <td>2025-03-05</td>
+      <td>Potato</td>
+      <td>150 kg</td>
+      <td>Warehouse B</td>
+      <td>Unit B</td>
+      <td>
+        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+        <button class="btn btn-danger btn-sm">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 </main>
 
 <!-- Add Modal -->
@@ -100,6 +126,11 @@
       </div>
       <div class="modal-body">
         <form>
+          <input type="text" class="form-control mb-2" placeholder="Crop ID">
+          <input type="text" class="form-control mb-2" placeholder="Temperature">
+          <input type="text" class="form-control mb-2" placeholder="Humidity">
+          <input type="text" class="form-control mb-2" placeholder="Category">
+          <input type="date" class="form-control mb-2" placeholder="Harvest Date">
           <input class="form-control mb-2" placeholder="Crop Name">
           <input class="form-control mb-2" placeholder="Quantity">
           <input class="form-control mb-2" placeholder="Storage Condition">
@@ -123,6 +154,11 @@
       </div>
       <div class="modal-body">
         <form>
+          <input type="text" class="form-control mb-2" placeholder="Crop ID">
+          <input type="text" class="form-control mb-2" placeholder="Temperature">
+          <input type="text" class="form-control mb-2" placeholder="Humidity">
+          <input type="text" class="form-control mb-2" placeholder="Category">
+          <input type="date" class="form-control mb-2" placeholder="Harvest Date">
           <input class="form-control mb-2" placeholder="Crop Name">
           <input class="form-control mb-2" placeholder="Quantity">
           <input class="form-control mb-2" placeholder="Storage Condition">
@@ -146,6 +182,34 @@
 <script>
   // auto year
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Edit button click event
+  document.querySelectorAll(".btn-warning").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      let row = this.closest("tr");
+
+      let cropId = row.cells[0].innerText;
+      let temperature = row.cells[1].innerText;
+      let humidity = row.cells[2].innerText;
+      let category = row.cells[3].innerText;
+      let harvestDate = row.cells[4].innerText;
+      let cropName = row.cells[5].innerText;
+      let quantity = row.cells[6].innerText;
+      let storage = row.cells[7].innerText;
+      let processing = row.cells[8].innerText;
+
+      let modal = document.getElementById("editModal");
+      modal.querySelector("input[placeholder='Crop ID']").value = cropId;
+      modal.querySelector("input[placeholder='Temperature']").value = temperature;
+      modal.querySelector("input[placeholder='Humidity']").value = humidity;
+      modal.querySelector("input[placeholder='Category']").value = category;
+      modal.querySelector("input[placeholder='Harvest Date']").value = harvestDate;
+      modal.querySelector("input[placeholder='Crop Name']").value = cropName;
+      modal.querySelector("input[placeholder='Quantity']").value = quantity;
+      modal.querySelector("input[placeholder='Storage Condition']").value = storage;
+      modal.querySelector("input[placeholder='Processing Unit']").value = processing;
+    });
+  });
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
