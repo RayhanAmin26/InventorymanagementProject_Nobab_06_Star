@@ -113,8 +113,8 @@ body {
    Footer
 /* ===== Footer ===== */
 .site-footer{
-  background:#23272b;          /* ডার্ক ব্যাকগ্রাউন্ড */
-  color:#f3b200;                /* গোল্ড/ইয়েলো টেক্সট */
+  background:#23272b;          
+  color:#f3b200;               
   text-align:center;
   font-weight:700;
   padding:12px 16px;
@@ -128,11 +128,11 @@ body {
   text-decoration:underline;
 }
 
-/* ফুটারকে নিচে রাখতে মিন-হাইট লেআউট */
+
 html, body { height:100%; }
 body{
   min-height:100vh;
   display:flex;
   flex-direction:column;
 }
-main{ flex:1; } /* পেজ কনটেন্ট main-এর ভেতরে থাকবে */
+main{ flex:1; } 
