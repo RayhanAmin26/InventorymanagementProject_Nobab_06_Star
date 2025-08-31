@@ -17,7 +17,7 @@ async function apiRequest(entity, method = 'GET', data = null, id = null) {
   return res.json();
 }
 
-function serializeForm(modalEl) {
+const serializeForm = (modalEl) => {
   const inputs = modalEl.querySelectorAll('input');
   const payload = {};
   inputs.forEach(input => {
@@ -28,7 +28,7 @@ function serializeForm(modalEl) {
   return payload;
 }
 
-function fillTable(tbody, rows, columns) {
+const fillTable = (tbody, rows, columns) => {
   tbody.innerHTML = '';
   rows.forEach(r => {
     const tr = document.createElement('tr');
