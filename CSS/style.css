@@ -1,5 +1,5 @@
 /* ================================
-   General Body & Fonts
+   General Body & Fonts - 
 ================================ */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -8,7 +8,7 @@ body {
 }
 
 /* ================================
-   Navbar
+   Navbar - 
 ================================ */
 .navbar {
   border-bottom: 3px solid #28a745;
@@ -26,7 +26,7 @@ body {
 }
 
 /* ================================
-   Section Cards
+   Section Cards - 
 ================================ */
 .section-card {
   background-color: #ffffff;
